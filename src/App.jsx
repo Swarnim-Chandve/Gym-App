@@ -6,6 +6,7 @@ import { generateWorkout } from './utils/functions'
 import RC from "./assets/RC.mp4"
 
 
+
 function App() {
   const [workout, setWorkout] = useState(null)
   const [poison, setPoison] = useState('individual')
@@ -26,10 +27,14 @@ function App() {
     <main className='min-h-screen flex flex-col bg-gradient-to-r from-slate-800 to-slate-950 text-white text-sm sm:text-base'>
    
 
-<video className='videoTag ' autoPlay loop muted>
-    <source src={RC} type='video/mp4' />
-</video>
-      <Hero className='absolute' />
+      <Hero className='relative z-1' >
+
+        {/* <video className='videoTag absolute h-full w-full -z-1' autoPlay loop muted>
+            <source src={RC} type='video/mp4' />
+        </video> */}
+      </Hero>
+
+
       <Generator
         poison={poison}
         setPoison={setPoison}
@@ -40,6 +45,8 @@ function App() {
         updateWorkout={updateWorkout}
       />
       {workout && (<Workout workout={workout} />)}
+
+    
     </main>
   )
 }
